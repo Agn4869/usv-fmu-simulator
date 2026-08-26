@@ -1,0 +1,49 @@
+simulation:
+  fmu_path: ../models/usv7.fmu
+  step_size: 0.2
+  duration: 10
+  realtime: true
+
+initial:
+  u0: 0.0
+  v0: 0.0
+  r0: 0.0
+  yaw_deg0: 0.0
+
+control_defaults:
+  rudder_percent: 0.0
+  throttle_percent: 0.0
+  tip_buck_percent: 0.0
+
+mqtt:
+  enabled: true
+  host: 127.0.0.1
+  port: 1883
+  vessel_id: usv_001
+  keepalive: 2
+  command_qos: 1
+  state_qos: 0
+  reconnect_min_delay: 1
+  reconnect_max_delay: 2
+  command_timeout_seconds: 0
+  timeout_action: hold
+  username: ""
+  password: ""
+  tls:
+    enabled: false
+
+protocol:
+  command_topic: "1234"
+  state_topic: "4321"
+  package_type: 0
+  origin_longitude: 0.0
+  origin_latitude: 0.0
+  origin_height: 0.0
+  device_state: 1
+
+output:
+  csv_path: ../usv_state_reconnect_test.csv
+  flush_each_step: true
+
+logging:
+  level: INFO

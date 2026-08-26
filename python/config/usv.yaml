@@ -1,0 +1,57 @@
+simulation:
+  fmu_path: ../models/usv7.fmu
+  step_size: 0.2
+  # 0 表示持续运行，Ctrl+C 停止。
+  duration: 0
+  realtime: true
+
+initial:
+  # 仿真起点。经纬度用于将 FMU 局部 x/y（米）转换为 4321 经纬度。
+  longitude: 0.0
+  latitude: 0.0
+  height: 0.0
+  # 仅在 FMU 初始化阶段写入一次。
+  u0: 0.0
+  v0: 0.0
+  r0: 0.0
+  yaw_deg0: 0.0
+
+control_defaults:
+  rudder_percent: 0.0
+  throttle_percent: 0.0
+  tip_buck_percent: 0.0
+
+mqtt:
+  enabled: true
+  host: 43.136.98.64
+  port: 1884
+  vessel_id: usv_001
+  keepalive: 30
+  command_qos: 1
+  state_qos: 0
+  reconnect_min_delay: 1
+  reconnect_max_delay: 30
+  # 超过该时间未收到控制命令时启用超时策略；0 表示不检查。
+  command_timeout_seconds: 2.0
+  # hold：保持最后命令；defaults：恢复 control_defaults。
+  timeout_action: hold
+  username: ""
+  password: ""
+  tls:
+    enabled: false
+    ca_file: ""
+    insecure: false
+
+protocol:
+  command_topic: "1234"
+  state_topic: "4321"
+  package_type: 0
+  # 新版 FMU 的 Deltar/rpm/butk 直接接收 1234 的百分比值 [-100, 100]。
+  device_state: 1
+
+output:
+  csv_path: ../usv_state.csv
+  flush_each_step: true
+
+logging:
+  level: INFO

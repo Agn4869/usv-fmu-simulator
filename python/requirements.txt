@@ -1,0 +1,4 @@
+fmpy==0.3.31
+paho-mqtt==2.1.0
+PyYAML==6.0.2
+

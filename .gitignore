@@ -1,0 +1,26 @@
+# Build output
+cpp/build/
+cpp/build2/
+cpp/build-release*/
+cpp/runtime/
+cpp/*.exe
+cpp/*.dll
+cpp/*.csv
+cpp/*.log
+
+# Model/runtime packages
+*.fmu
+*.slx
+*.zip
+
+# Local IDE files
+.vs/
+.vscode/
+*.user
+*.suo
+
+# Python local environment and cache
+python/.venv/
+python/venv/
+python/__pycache__/
+*.pyc

@@ -1,0 +1,35 @@
+simulation:
+  fmu_path: ../models/usv7.fmu
+  step_size: 0.2
+  duration: 2
+  realtime: false
+
+initial:
+  u0: 0.0
+  v0: 0.0
+  r0: 0.0
+  yaw_deg0: 0.0
+
+control_defaults:
+  rudder_percent: 0.0
+  throttle_percent: 100.0
+  tip_buck_percent: 0.0
+
+mqtt:
+  enabled: false
+
+protocol:
+  command_topic: "1234"
+  state_topic: "4321"
+  package_type: 0
+  origin_longitude: 0.0
+  origin_latitude: 0.0
+  origin_height: 0.0
+  device_state: 1
+
+output:
+  csv_path: ../usv_state_test.csv
+  flush_each_step: true
+
+logging:
+  level: INFO
